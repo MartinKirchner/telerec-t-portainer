@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   portainer:
     container_name: "{{ service_cfg.name }}"
@@ -7,6 +5,8 @@ services:
     restart: unless-stopped
     environment:
       TZ: "{{ timezone }}"
+    ports:
+      - 9443:9443
     volumes:
       - "{{ service_cfg.directory }}:/data:rw"
       - "/var/run/docker.sock:/var/run/docker.sock"
