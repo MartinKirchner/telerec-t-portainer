@@ -4,7 +4,7 @@
     service_defaults:
       directory: "{{ docker_dir }}/portainer"
       name: portainer
-      domain: "portainer.pinyto.de"
+      domain: "portainer.home.m-kirchner.de"
       port: 9000
       traefik: true
       external: true
