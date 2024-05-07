@@ -7,7 +7,7 @@
       domain: "portainer.home.m-kirchner.de"
       port: 9000
       traefik: true
-      external: true
+      external: false
       watchtower: true
       autoheal: true
       skip_network_definition: false
