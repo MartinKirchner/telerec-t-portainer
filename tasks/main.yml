@@ -4,10 +4,10 @@
     service_defaults:
       directory: "{{ docker_dir }}/portainer"
       name: portainer
-      domain: "portainer.pinyto.de"
+      domain: "portainer.home.m-kirchner.de"
       port: 9000
       traefik: true
-      external: true
+      external: false
       watchtower: true
       autoheal: true
       skip_network_definition: false
@@ -15,7 +15,7 @@
 
 - block:
   - name: "Get the ip of {{ service_cfg.name }}"
-    command: "docker inspect   -f '{{ '{{' }}(index .NetworkSettings.Networks \"traefik_default\").IPAddress{{ '}}' }}' {{ service_cfg.name }}"
+    command: "docker inspect   -f '{{ '{{' }}(index .NetworkSettings.Networks \"traefik_net\").IPAddress{{ '}}' }}' {{ service_cfg.name }}"
     register: command_output
   - name: "Save ip in a variable"
     ansible.builtin.set_fact:
